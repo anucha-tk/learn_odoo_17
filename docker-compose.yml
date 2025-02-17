@@ -32,4 +32,3 @@ services:
       - ./addons:/mnt/extra-addons
       - ./etc:/etc/odoo
     restart: always             # run as a service
-    

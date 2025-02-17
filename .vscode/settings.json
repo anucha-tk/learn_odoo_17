@@ -1,3 +1,7 @@
 {
-  "cSpell.words": ["odoo", "pyproject"]
+  "cSpell.words": [
+    "isort",
+    "odoo",
+    "pyproject"
+  ]
 }
