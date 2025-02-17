@@ -6,3 +6,5 @@ etc/filestore/
 
 # ruff
 .ruff_cache
+
+.env.dev

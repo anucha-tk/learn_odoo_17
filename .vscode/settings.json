@@ -1,7 +1,10 @@
 {
   "cSpell.words": [
+    "commitizen",
     "isort",
     "odoo",
+    "Pyflakes",
+    "Pylint",
     "pyproject"
   ]
 }

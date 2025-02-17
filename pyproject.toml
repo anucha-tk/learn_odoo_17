@@ -10,3 +10,7 @@ select = [
 ignore = ["E501"]  # Ignore long lines (Odoo often has long SQL queries)
 
 fixable = ["ALL"]
+
+[tool.commitizen]
+version = "0.1.0"
+update_changelog_on_bump = true
