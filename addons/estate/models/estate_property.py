@@ -1,10 +1,25 @@
 from odoo import fields, models
 
 
-class EstateModel(models.Model):
-    _name = "app.estate"
-    _description = "test estate description"
+class EstateProperty(models.Model):
+    # Private attribute
+    _name = "estate.property"
+    _description = "Real Estate Property"
+    _order = "id desc"
+    _sql_constraints = [
+        (
+            "check_expected_price",
+            "CHECK(expected_price > 0)",
+            "The expected price must be strictly positive",
+        ),
+        (
+            "check_selling_price",
+            "CHECK(selling_price >= 0)",
+            "The offer price must be positive",
+        ),
+    ]
 
+    # Basic
     name = fields.Char("Name", required=True)
     description = fields.Text("Description")
     postcode = fields.Char("Postcode")
@@ -18,11 +33,11 @@ class EstateModel(models.Model):
     garden = fields.Boolean("Garden")
     garden_area = fields.Integer("Garden Area")
     garden_orientation = fields.Selection(
-        string="Type",
+        string="Garden Orientation",
         selection=[
-            ("north", "North"),
-            ("south", "South"),
-            ("east", "East"),
-            ("west", "West"),
+            ("N", "North"),
+            ("S", "South"),
+            ("E", "East"),
+            ("W", "West"),
         ],
     )
