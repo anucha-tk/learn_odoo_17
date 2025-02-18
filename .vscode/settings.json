@@ -2,7 +2,9 @@
   "cSpell.words": [
     "commitizen",
     "isort",
+    "localtime",
     "odoo",
+    "pycache",
     "Pyflakes",
     "Pylint",
     "pyproject"
