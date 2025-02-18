@@ -3,10 +3,13 @@
     "commitizen",
     "isort",
     "localtime",
+    "nocontent",
     "odoo",
     "pycache",
     "Pyflakes",
     "Pylint",
-    "pyproject"
-  ]
+    "pyproject",
+    "relativedelta"
+  ],
+  "python.languageServer": "None"
 }
