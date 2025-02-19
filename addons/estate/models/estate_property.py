@@ -30,7 +30,7 @@ class EstateProperty(models.Model):
     description = fields.Text("Description")
     postcode = fields.Char("Postcode")
     date_availability = fields.Date(
-        "Date Availability",
+        "Availability Form",
         default=lambda self: self._default_date_availability(),
         copy=False,
     )
