@@ -13,7 +13,8 @@
     "Qweb",
     "relativedelta",
     "statinfo",
-    "Uncategorized"
+    "Uncategorized",
+    "Weblearns"
   ],
   "python.languageServer": "None",
   "cSpell.ignorePaths": [

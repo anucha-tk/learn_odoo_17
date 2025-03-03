@@ -9,6 +9,11 @@ Long description of module's purpose
     "website": "https://www.yourcompany.com",
     "category": "Uncategorized",
     "version": "0.1",
-    "depends": ["base", "account"],
-    "data": [],
+    "depends": ["base"],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/student_view.xml",
+    ],
+    "sequence": -100,
+    "application": True,
 }
