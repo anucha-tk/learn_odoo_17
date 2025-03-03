@@ -7,8 +7,9 @@ select = [
     "E", "F", "W", "I",  # PEP8, Pyflakes, Warnings, Import sorting
     "UP", "PL", "B", "A"  # Upgrade, Pylint, Bugbear, Built-in checks
 ]
-ignore = ["E501"]  # Ignore long lines (Odoo often has long SQL queries)
-
+# E501 Ignore long lines (Odoo often has long SQL queries)
+# UP009 Ignore unnecessary encoding declaration
+ignore = ["E501", "UP009", "B018"]
 fixable = ["ALL"]
 
 [tool.commitizen]

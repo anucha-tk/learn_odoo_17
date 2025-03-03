@@ -10,8 +10,10 @@
     "Pyflakes",
     "Pylint",
     "pyproject",
+    "Qweb",
     "relativedelta",
-    "statinfo"
+    "statinfo",
+    "Uncategorized"
   ],
   "python.languageServer": "None",
   "cSpell.ignorePaths": [
