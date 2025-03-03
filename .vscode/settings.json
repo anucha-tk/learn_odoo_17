@@ -10,7 +10,8 @@
     "Pyflakes",
     "Pylint",
     "pyproject",
-    "relativedelta"
+    "relativedelta",
+    "statinfo"
   ],
   "python.languageServer": "None",
   "cSpell.ignorePaths": [
