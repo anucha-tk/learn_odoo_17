@@ -9,7 +9,7 @@ Long description of module's purpose
     "website": "https://www.yourcompany.com",
     "category": "Uncategorized",
     "version": "0.1",
-    # "depends": ["student"],
+    "depends": ["base"],
     "data": [
         "security/ir.model.access.csv",
         "views/school_view.xml",

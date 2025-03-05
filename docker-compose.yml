@@ -6,11 +6,11 @@ services:
       - POSTGRES_USER=odoo
       - POSTGRES_PASSWORD=odoo17@2023
       - POSTGRES_DB=postgres
-    restart: always             # run as a service
+    restart: always # run as a service
     ports:
       - "5432:5432"
     volumes:
-      - ./postgresql:/var/lib/postgresql/data
+      - learn_odoo_17:/var/lib/postgresql/data
 
   odoo17:
     image: odoo:17
@@ -21,7 +21,10 @@ services:
       - "10017:8069"
       - "20017:8072" # live chat
     tty: true
-    command: --
+    # command: --
+    # command: odoo --dev=xml,reload
+    command: odoo -d learn_odoo_17 --dev=xml,reload
+    # command: odoo -u student -d learn_odoo_17 --dev=xml,reload
     environment:
       - HOST=db
       - USER=odoo
@@ -32,4 +35,6 @@ services:
       #- ./entrypoint.sh:/entrypoint.sh   # if you want to install additional Python packages, uncomment this line!
       - ./addons:/mnt/extra-addons
       - ./etc:/etc/odoo
-    restart: always             # run as a service
+    restart: always # run as a service
+volumes:
+  learn_odoo_17:
