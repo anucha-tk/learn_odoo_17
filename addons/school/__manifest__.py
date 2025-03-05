@@ -17,4 +17,5 @@ Long description of module's purpose
     "sequence": -100,
     "license": "GPL-2",
     "application": True,
+    "installable": True,
 }
