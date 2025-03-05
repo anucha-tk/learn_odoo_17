@@ -6,4 +6,5 @@
 Long description of module's purpose
     """,
     "author": "Anucha-tk",
+    "license": "GPL-2",
 }

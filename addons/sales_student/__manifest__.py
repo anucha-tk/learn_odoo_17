@@ -17,4 +17,5 @@ Long description of module's purpose
     "auto_install": True,
     # always loaded
     "data": [],
+    "license": "GPL-2",
 }

@@ -5,5 +5,5 @@ class School(models.Model):
     _name = "wb.school"
     _description = "School"
 
-    name = fields.Char("name")
+    name = fields.Char("Name")
     student_ids = fields.One2many("wb.student", "school_id", string="Students")

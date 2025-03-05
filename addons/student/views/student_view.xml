@@ -7,6 +7,14 @@
         <field name="arch" type="xml">
             <tree string="Student Lists">
                 <field name="name" />
+                <field name="student_name" />
+                <field name="address" />
+                <field name="address_html" />
+                <field name="is_paid" />
+                <field name="gender" />
+                <field name="vip_gender" />
+                <field name="roll_number" />
+                <field name="school_id" />
             </tree>
         </field>
     </record>
@@ -19,6 +27,14 @@
                 <sheet>
                     <group>
                         <field name="name" />
+                        <field name="student_name" />
+                        <field name="address" placeholder="Enter student address" />
+                        <field name="address_html" />
+                        <field name="is_paid" />
+                        <field name="gender" />
+                        <field name="vip_gender" required="1" />
+                        <field name="roll_number" />
+                        <field name="school_id" />
                     </group>
                 </sheet>
             </form>
