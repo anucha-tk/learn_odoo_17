@@ -15,6 +15,7 @@
                 <field name="vip_gender" />
                 <field name="roll_number" />
                 <field name="school_id" />
+                <field name="hobby_list_ids" widget="many2many_tags" />
             </tree>
         </field>
     </record>
@@ -34,7 +35,8 @@
                         <field name="gender" />
                         <field name="vip_gender" required="1" />
                         <field name="roll_number" />
-                        <field name="school_id" />
+                        <field name="school_id" string="School" placeholder="Please select school" />
+                        <field name="hobby_list_ids" widget="many2many_tags" />
                     </group>
                 </sheet>
             </form>

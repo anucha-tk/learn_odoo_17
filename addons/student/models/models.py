@@ -36,3 +36,8 @@ class Student(models.Model):
     vip_gender = fields.Selection(_get_vip_list)
     roll_number = fields.Integer("Roll Number")
     school_id = fields.Many2one("wb.school", string="School")
+    hobby_list_ids = fields.Many2many(
+        "wb.hobby",
+        string="Hobbies",
+        help="Select hobby list for this student!",
+    )
