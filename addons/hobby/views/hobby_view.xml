@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="wb_hobby_view_tree" model="ir.ui.view">
+        <field name="name">wb.hobby.view.tree</field>
+        <field name="model">wb.hobby</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="wb_hobby_view_form" model="ir.ui.view">
+        <field name="name">wb.hobby.view.form</field>
+        <field name="model">wb.hobby</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="wb_hobby_action" model="ir.actions.act_window">
+        <field name="name">Hobby</field>
+        <field name="res_model">wb.hobby</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem
+        id="wb_hobby_root_menu"
+        name="Hobby"
+        sequence="10" />
+
+    <menuitem
+        id="wb_hobby_sub_root_menu"
+        name="Hobby Menu"
+        parent="wb_hobby_root_menu"
+        sequence="10" />
+
+    <menuitem
+        id="wb_hobby_menu"
+        name="lists"
+        action="wb_hobby_action"
+        parent="wb_hobby_sub_root_menu"
+        sequence="10" />
+
+</odoo>

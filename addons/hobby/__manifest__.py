@@ -11,6 +11,7 @@ Long description of module's purpose
     "version": "0.1",
     "data": [
         "security/ir.model.access.csv",
+        "views/hobby_view.xml",
     ],
     "sequence": -100,
     "application": True,
