@@ -8,6 +8,7 @@
             <tree string="School">
                 <field name="name" />
                 <field name="student_ids" />
+                <field name="res_user_id" />
             </tree>
         </field>
     </record>
@@ -21,6 +22,9 @@
                     <group>
                         <field name="name" />
                         <field name="student_ids" />
+                        <field name="ref_field_id" />
+                        <field name="res_user_id" />
+                        <field name="res_user_email_id" />
                     </group>
                 </sheet>
             </form>

@@ -22,8 +22,8 @@ services:
       - "20017:8072" # live chat
     tty: true
     # command: -- # Basic
-    command: odoo -d learn_odoo_17 --dev=xml,reload # useful
-    # command: odoo -u student -d learn_odoo_17 --dev=xml,reload
+    # command: odoo -d learn_odoo_17 --dev=xml,reload # useful when don't know dev model
+    command: odoo -u student,school,hobby -d learn_odoo_17 --dev=xml,reload # awesome
     environment:
       - HOST=db
       - USER=odoo
