@@ -19,6 +19,8 @@ class Student(models.Model):
     student_name = fields.Char(
         "Student Name",
     )
+    student_fees = fields.Float("Student Fees", default=3.2)
+    discount_fees = fields.Float("Discount Fees")
     address = fields.Text("Address")
     address_html = fields.Html("Address Html")
     is_paid = fields.Boolean(
@@ -41,3 +43,22 @@ class Student(models.Model):
         string="Hobbies",
         help="Select hobby list for this student!",
     )
+
+    # compute field by default not store to database
+    # if you want store use store=True
+    final_fees = fields.Float(
+        compute="_compute_final_fees",
+        string="Final Fees",
+        store=True,
+    )
+
+    # This ensures Odoo recalculates final_fees whenever student_fees or discount_fees changes.
+    @api.depends("student_fees", "discount_fees")
+    def _compute_final_fees(self):
+        for record in self:
+            record.final_fees = record.student_fees - record.discount_fees
+
+    # image upload by binary
+    binary = fields.Binary("binary")
+    # store file name
+    binary_filename = fields.Char(string="Filename")

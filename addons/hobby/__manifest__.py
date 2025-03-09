@@ -13,6 +13,7 @@ Long description of module's purpose
         "security/ir.model.access.csv",
         "views/hobby_view.xml",
     ],
+    "depends": [],
     "sequence": -100,
     "application": True,
     "license": "GPL-2",

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    "name": "School",
+    "name": "school",
     "summary": "Short (1 phrase/line) summary of the module's purpose",
     "description": """
 Long description of module's purpose
@@ -9,7 +9,7 @@ Long description of module's purpose
     "website": "https://www.yourcompany.com",
     "category": "Uncategorized",
     "version": "0.1",
-    "depends": ["base", "student"],
+    "depends": ["student"],
     "data": [
         "security/ir.model.access.csv",
         "views/school_view.xml",

@@ -11,6 +11,7 @@ Long description of module's purpose
     "version": "0.1",
     "depends": [
         "base",
+        "hobby",
     ],
     "data": [
         "security/ir.model.access.csv",

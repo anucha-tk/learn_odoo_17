@@ -11,6 +11,8 @@ services:
       - "5432:5432"
     volumes:
       - ./postgresql:/var/lib/postgresql/data
+    networks:
+      - learn_odoo_17
 
   odoo17:
     image: odoo:17
@@ -21,9 +23,12 @@ services:
       - "10017:8069"
       - "20017:8072" # live chat
     tty: true
-    # command: -- # Basic
-    # command: odoo -d learn_odoo_17 --dev=xml,reload # useful when don't know dev model
-    command: odoo -u student,school,hobby -d learn_odoo_17 --dev=xml,reload # awesome
+    # 1. Basic
+    # command: --
+    # 2.useful when don't know dev model, work well when error _unknown id
+    command: odoo -d learn_odoo_17 --dev=xml,reload
+    # 3. not recommend just sometime error when use m2o, o2m, m2m when -u <...>
+    # command: odoo -u student,school,hobby -d learn_odoo_17 --dev=all
     environment:
       - HOST=db
       - USER=odoo
@@ -35,5 +40,8 @@ services:
       - ./addons:/mnt/extra-addons
       - ./etc:/etc/odoo
     restart: always # run as a service
-# volumes:
-#   learn_odoo_17:
+    networks:
+      - learn_odoo_17
+networks:
+  learn_odoo_17:
+    driver: bridge

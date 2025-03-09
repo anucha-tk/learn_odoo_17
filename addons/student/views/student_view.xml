@@ -16,6 +16,7 @@
                 <field name="roll_number" />
                 <field name="school_id" />
                 <field name="hobby_list_ids" widget="many2many_tags" />
+                <field name="binary_filename" />
             </tree>
         </field>
     </record>
@@ -29,6 +30,8 @@
                     <group>
                         <field name="name" />
                         <field name="student_name" />
+                        <field name="student_fees" />
+                        <field name="discount_fees" />
                         <field name="address" placeholder="Enter student address" />
                         <field name="address_html" />
                         <field name="is_paid" />
@@ -37,6 +40,8 @@
                         <field name="roll_number" />
                         <field name="school_id" string="School" placeholder="Please select school" />
                         <field name="hobby_list_ids" widget="many2many_tags" />
+                        <field name="final_fees" />
+                        <field name="binary" filename="binary_filename" />
                     </group>
                 </sheet>
             </form>
