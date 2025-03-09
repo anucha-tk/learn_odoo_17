@@ -5,6 +5,7 @@ class School(models.Model):
     _name = "wb.school"
     _description = "School"
 
+    school_image = fields.Image("School Image", max_width=50, max_height=50)
     name = fields.Char("Name")
     student_ids = fields.One2many("wb.student", "school_id", string="Students")
     # on form you can write database relate field by selection dynamic model

@@ -9,6 +9,7 @@
                 <field name="name" />
                 <field name="student_ids" />
                 <field name="res_user_id" />
+                <field name="school_image" widget="image" class="oe_avatar" nolabel="1" />
             </tree>
         </field>
     </record>
@@ -19,6 +20,9 @@
         <field name="arch" type="xml">
             <form string="School Form">
                 <sheet>
+                    <group>
+                        <field name="school_image" widget="image" />
+                    </group>
                     <group>
                         <field name="name" />
                         <field name="student_ids" />

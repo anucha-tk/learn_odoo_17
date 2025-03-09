@@ -42,6 +42,8 @@
                         <field name="hobby_list_ids" widget="many2many_tags" />
                         <field name="final_fees" />
                         <field name="binary" filename="binary_filename" />
+                        <field name="my_currency_id" />
+                        <field name="amount" />
                     </group>
                 </sheet>
             </form>

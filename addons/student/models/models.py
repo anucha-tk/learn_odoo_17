@@ -62,3 +62,9 @@ class Student(models.Model):
     binary = fields.Binary("binary")
     # store file name
     binary_filename = fields.Char(string="Filename")
+    my_currency_id = fields.Many2one(
+        "res.currency",
+        string="(My Currency)",
+        help="Please select the currency!",
+    )
+    amount = fields.Monetary("amount", currency_field="my_currency_id")

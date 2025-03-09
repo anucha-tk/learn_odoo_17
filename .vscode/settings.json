@@ -6,6 +6,7 @@
     "isort",
     "localtime",
     "nocontent",
+    "nolabel",
     "odoo",
     "pycache",
     "Pyflakes",
