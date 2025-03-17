@@ -8,3 +8,4 @@ etc/filestore/
 .ruff_cache
 
 .env.dev
+__pycache__
