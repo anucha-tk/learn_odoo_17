@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="wb_student_view_tree" model="ir.ui.view">
+        <field name="name">wb.student.view.tree</field>
+        <field name="model">wb.student</field>
+        <field name="arch" type="xml">
+            <tree string="Student Lists">
+                <field name="name" />
+                <field name="student_name" />
+                <field name="address" />
+                <field name="address_html" />
+                <field name="is_paid" />
+                <field name="gender" />
+                <field name="vip_gender" />
+                <field name="roll_number" />
+                <field name="school_id" />
+                <field name="hobby_list_ids" widget="many2many_tags" />
+                <field name="binary_filename" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="wb_student_view_form" model="ir.ui.view">
+        <field name="name">wb.student.view.form</field>
+        <field name="model">wb.student</field>
+        <field name="arch" type="xml">
+            <form string="Student Form">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="student_name" />
+                        <field name="student_fees" />
+                        <field name="discount_fees" />
+                        <field name="address" placeholder="Enter student address" />
+                        <field name="address_html" />
+                        <field name="is_paid" />
+                        <field name="gender" />
+                        <field name="vip_gender" required="1" />
+                        <field name="roll_number" />
+                        <field name="school_id" string="School" placeholder="Please select school" />
+                        <field name="hobby_list_ids" widget="many2many_tags" />
+                        <field name="final_fees" />
+                        <field name="binary" filename="binary_filename" />
+                        <field name="my_currency_id" />
+                        <field name="amount" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="wb_student_action" model="ir.actions.act_window">
+        <field name="name">Student</field>
+        <field name="res_model">wb.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create Student</p>
+        </field>
+    </record>
+
+    <!-- Student -> Weblearn -> Student list -->
+    <menuitem
+        id="wb_student_root_menu"
+        name="Student"
+        sequence="10" />
+    <menuitem
+        id="wb_student_sub_root_menu"
+        name="Weblearns"
+        parent="wb_student_root_menu"
+        sequence="10" />
+    <menuitem
+        id="wb_student_menu"
+        name="Student List"
+        action="wb_student_action"
+        parent="wb_student_sub_root_menu"
+        sequence="10" />
+
+</odoo>

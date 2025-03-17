@@ -1,11 +1,17 @@
 lint:
 	pre-commit run --all-files
 
-local-dev:
+dev:
 	docker compose up -d
-local-stop:
+stop:
 	docker compose stop
-local-down:
+down:
 	docker compose down
-local-logs:
+restart:
+	docker compose restart
+logs:
 	docker compose logs -f
+rm-log:
+	rm etc/odoo-server.log
+rm-cache:
+	find addons/ -type d -name "__pycache__" -exec rm -rf {} +

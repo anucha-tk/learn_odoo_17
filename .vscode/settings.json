@@ -1,10 +1,32 @@
 {
   "cSpell.words": [
     "commitizen",
+    "comodel",
+    "dateutil",
     "isort",
+    "localtime",
+    "nocontent",
+    "nolabel",
     "odoo",
+    "pycache",
     "Pyflakes",
     "Pylint",
-    "pyproject"
+    "pyproject",
+    "Qweb",
+    "relativedelta",
+    "statinfo",
+    "Uncategorized",
+    "Weblearns"
+  ],
+  "python.languageServer": "None",
+  "cSpell.ignorePaths": [
+    "package-lock.json",
+    "node_modules",
+    "vscode-extension",
+    ".git/{info,lfs,logs,refs,objects}/**",
+    ".git/{index,*refs,*HEAD}",
+    ".vscode",
+    ".vscode-insiders",
+    "*log"
   ]
 }
