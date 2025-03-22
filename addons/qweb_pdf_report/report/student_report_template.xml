@@ -2,27 +2,56 @@
 <odoo>
 
     <template id="student_profile_report_template">
-        <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="doc">
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="web.html_container">
                 <t t-call="web.external_layout">
                     <div class="page">
-                        <h1>Hello How ar you?</h1>
+                        <t t-call="qweb_pdf_report.sub_student_information_template" />
+                        <t t-call="qweb_pdf_report.sub_student_hobby_template" />
                     </div>
                 </t>
             </t>
         </t>
     </template>
 
+    <template id="sub_student_information_template">
+        <h1>Hello, How are you? <span t-out="doc.name" /></h1>
+    </template>
+
+    <template id="sub_student_hobby_template">
+        <h4>Hobby List</h4>
+        <t t-set="hb_count" t-value="0" />
+        <t t-foreach="doc.hobby_list_ids" t-as="hb">
+            <t t-set="hb_count" t-value="hb_count+1" />
+            <p>No. <span t-out="hb_index + 1" /> Name: <span t-out="hb.name" /></p>
+        </t>
+        <p>Count: <span t-out="hb_count" /></p>
+    </template>
+
+    <record id="student_custom_report_paperformat" model="report.paperformat">
+        <field name="name">Student Custom Paper Format</field>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="dpi">90</field>
+    </record>
+
     <record id="student_profile_report_temp" model="ir.actions.report">
         <field name="name">Student Card</field>
         <field name="model">wb.student</field>
-        <field name="report_type">qweb-pdf</field>
+        <field name="report_type">qweb-html</field>
         <field name="report_name">qweb_pdf_report.student_profile_report_template</field>
         <field name="report_file">qweb_pdf_report.student_profile_report_template</field>
         <field name="print_report_name">'report-%s' % object.name</field>
         <field name="binding_model_id" ref="student.model_wb_student" />
         <field name="binding_type">report</field>
         <field name="attachment_use">False</field>
+        <field name="paperformat_id" ref="qweb_pdf_report.student_custom_report_paperformat" />
     </record>
 
 </odoo>
