@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="student_card_pdf_template_report" name="Student Card">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <table class="table table-bordered"
+                    style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <th
+                            style="background-color: #f2f2f2; padding: 8px;">
+                            Name</th>
+                        <th
+                            style="background-color: #f2f2f2; padding: 8px;">Student
+                            Name</th>
+                        <th
+                            style="background-color: #f2f2f2; padding: 8px;">Student
+                            Fees</th>
+                        <th
+                            style="background-color: #f2f2f2; padding: 8px;">Discount
+                            Fees</th>
+                        <th
+                            style="background-color: #f2f2f2; padding: 8px;">
+                            Address</th>
+                        <th
+                            style="background-color: #f2f2f2; padding: 8px;">Address
+                            (HTML)</th>
+                        <th
+                            style="background-color: #f2f2f2; padding: 8px;">Paid
+                            Status</th>
+                        <th
+                            style="background-color: #f2f2f2; padding: 8px;">
+                            Gender</th>
+                        <th
+                            style="background-color: #f2f2f2; padding: 8px;">VIP
+                            Gender</th>
+                        <th
+                            style="background-color: #f2f2f2; padding: 8px;">Roll
+                            Number</th>
+                    </tr>
+                    <t t-foreach="docs" t-as="student">
+                        <tr>
+                            <td>
+                                <span t-esc="student.name" />
+                            </td>
+                            <td>
+                                <span t-esc="student.student_name" />
+                            </td>
+                            <td>
+                                <span t-esc="student.student_fees" />
+                            </td>
+                            <td>
+                                <span t-esc="student.discount_fees" />
+                            </td>
+                            <td>
+                                <span t-esc="student.address" />
+                            </td>
+                            <td>
+                                <span t-raw="student.address_html" />
+                            </td>
+                            <td>
+                                <span t-esc="'Paid' if student.is_paid else 'Unpaid'" />
+                            </td>
+                            <td>
+                                <span t-esc="student.gender" />
+                            </td>
+                            <td>
+                                <span t-esc="student.vip_gender" />
+                            </td>
+                            <td>
+                                <span t-esc="student.roll_number" />
+                            </td>
+                        </tr>
+                    </t>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <record id="school_student_profile_card_report" model="ir.actions.report">
+        <field name="name">Student Card Print</field>
+        <field name="model">wb.student</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">qweb_pdf_report.student_card_pdf_template_report</field>
+        <field name="report_file">qweb_pdf_report.student_card_pdf_template_report</field>
+        <field name="print_report_name">'Student_Card_%s' % object.name</field>
+        <field name="binding_model_id" ref="student.model_wb_student" />
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

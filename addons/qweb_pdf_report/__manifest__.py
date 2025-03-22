@@ -12,5 +12,6 @@ Long description of module's purpose
     "depends": ["base"],
     "data": [
         "report/student_report_template.xml",
+        "report/student_card_template.xml",
     ],
 }
