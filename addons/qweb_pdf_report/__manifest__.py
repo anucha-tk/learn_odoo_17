@@ -13,5 +13,6 @@ Long description of module's purpose
     "data": [
         "report/student_report_template.xml",
         "report/student_card_template.xml",
+        "report/custom_header_footer.xml",
     ],
 }

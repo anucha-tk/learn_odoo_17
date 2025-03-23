@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="student_custom_header_footer">
+        <!-- Set company -->
+        <t t-if="not o" t-set="o" t-value="doc" />
+        <t t-if="not company">
+            <!-- multi company -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id" />
+            </t>
+            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                <t t-set="company" t-value="o.company_id.sudo()" />
+            </t>
+            <t t-else="">
+                <t t-set="company" t-value="res_company" />
+            </t>
+        </t>
+
+        <div class="header">
+            <div class="row" style="border-bottom: 1px solid black;">
+                <div class="col-3 mb4">
+                    <img alt="img" t-if="company.logo" t-att-src="image_data_uri(company.logo)"
+                        style="max-height:90px;" />
+                </div>
+                <div class="col-9" style="display: flex; justify-content: center;">
+                    <span t-if="company.company_details" t-esc="company.company_details" />
+                </div>
+            </div>
+        </div>
+        <div class="article o_report_layout_standard">
+            <t t-out="0" />
+        </div>
+        <div class="footer o_report_standard">
+            <div class="row" style="border-top: 1px solid black;">
+                <div class="mb-4" style="display:flex; justify-content: space-between;">
+                    <p>Page: <span class="page" />/<span class="topage" /></p>
+                    <p t-out="company.report_footer" class="text-center" />
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+</odoo>
