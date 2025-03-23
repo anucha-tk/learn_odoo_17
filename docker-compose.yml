@@ -26,9 +26,9 @@ services:
     # 1. Basic
     # command: --
     # 2.useful when don't know dev model, work well when error _unknown id
-    command: odoo -d learn_odoo_17 --dev=xml,reload
+    # command: odoo -d learn_odoo_17 --dev=xml,reload
     # 3. not recommend just sometime error when use m2o, o2m, m2m when -u <...>
-    # command: odoo -u student,school,hobby -d learn_odoo_17 --dev=all
+    command: odoo -u qweb_pdf_report -d learn_odoo_17 --dev=all
     environment:
       - HOST=db
       - USER=odoo

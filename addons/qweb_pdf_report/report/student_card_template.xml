@@ -3,12 +3,24 @@
     <template id="student_card_pdf_template_report" name="Student Card">
         <t t-call="web.basic_layout">
             <div class="page">
+                <div style="display:flex;justify-content: center;padding: 20px">
+                    <img
+                        src="/qweb_pdf_report/static/description/avatar.png"
+                        alt="avatar" height="100"
+                        width="100" />
+                </div>
                 <table class="table table-bordered"
                     style="width: 100%; border-collapse: collapse;">
                     <tr>
                         <th
                             style="background-color: #f2f2f2; padding: 8px;">
                             Name</th>
+                        <th
+                            style="background-color: #f2f2f2; padding: 8px;">Image
+                        </th>
+                        <th
+                            style="background-color: #f2f2f2; padding: 8px;">Barcode
+                        </th>
                         <th
                             style="background-color: #f2f2f2; padding: 8px;">Student
                             Name</th>
@@ -22,9 +34,6 @@
                             style="background-color: #f2f2f2; padding: 8px;">
                             Address</th>
                         <th
-                            style="background-color: #f2f2f2; padding: 8px;">Address
-                            (HTML)</th>
-                        <th
                             style="background-color: #f2f2f2; padding: 8px;">Paid
                             Status</th>
                         <th
@@ -33,14 +42,24 @@
                         <th
                             style="background-color: #f2f2f2; padding: 8px;">VIP
                             Gender</th>
-                        <th
-                            style="background-color: #f2f2f2; padding: 8px;">Roll
-                            Number</th>
                     </tr>
                     <t t-foreach="docs" t-as="student">
                         <tr>
                             <td>
                                 <span t-esc="student.name" />
+                            </td>
+                            <td>
+                                <img t-if="student.binary"
+                                    t-att-src="image_data_uri(student.binary)" alt="student name"
+                                    style="max-height:80px;max-width:80px" />
+                            </td>
+                            <td>
+                                <!-- QR, EAN13, EAN8, Code128, UPCA -->
+                                <img t-att-src="'/report/barcode/QR/%s'%(student.name)"
+                                    alt="barcode"
+                                    width="80px"
+                                    height="80px" />
+
                             </td>
                             <td>
                                 <span t-esc="student.student_name" />
@@ -55,9 +74,6 @@
                                 <span t-esc="student.address" />
                             </td>
                             <td>
-                                <span t-raw="student.address_html" />
-                            </td>
-                            <td>
                                 <span t-esc="'Paid' if student.is_paid else 'Unpaid'" />
                             </td>
                             <td>
@@ -65,9 +81,6 @@
                             </td>
                             <td>
                                 <span t-esc="student.vip_gender" />
-                            </td>
-                            <td>
-                                <span t-esc="student.roll_number" />
                             </td>
                         </tr>
                     </t>
@@ -79,7 +92,7 @@
     <record id="school_student_profile_card_report" model="ir.actions.report">
         <field name="name">Student Card Print</field>
         <field name="model">wb.student</field>
-        <field name="report_type">qweb-pdf</field>
+        <field name="report_type">qweb-html</field>
         <field name="report_name">qweb_pdf_report.student_card_pdf_template_report</field>
         <field name="report_file">qweb_pdf_report.student_card_pdf_template_report</field>
         <field name="print_report_name">'Student_Card_%s' % object.name</field>
